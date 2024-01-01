@@ -21,10 +21,11 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import ThemeRegistry from "../theme/theme-registry";
 import Head from "next/head";
 import { Seo } from "@/components/common";
+import { Button } from "@mui/material";
 
 export const metadata = {
-  title: "Next.js App Router + Material UI v5",
-  description: "Next.js App Router + Material UI v5",
+  title: "Next.js",
+  description: "Tutorial Next.js",
 };
 
 const DRAWER_WIDTH = 240;
@@ -121,6 +122,7 @@ export default function RootLayout({
                 </ListItem>
               ))}
             </List>
+            <Divider sx={{ mt: "auto" }} />
           </Drawer>
           <Box
             component="main"
