@@ -19,9 +19,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SupportIcon from "@mui/icons-material/Support";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ThemeRegistry from "../theme/theme-registry";
-import Head from "next/head";
-import { Seo } from "@/components/common";
-import { Button } from "@mui/material";
 
 export const metadata = {
   title: "Next.js",
@@ -49,26 +46,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        ></link>
-
-        <Seo
-          data={{
-            title: "NextJS - Build Blog ",
-            description: "Project build a full CRUD website using NextJS",
-            url: "https://learn-nextjs-eight-puce.vercel.app/",
-            thumbnailUrl:
-              "https://i.pinimg.com/564x/da/d9/b3/dad9b353b6ef7be5654e438c5ac93f1f.jpg",
-          }}
-        />
-      </Head>
       <body>
         <ThemeRegistry>
           <AppBar position="fixed" sx={{ zIndex: 2000 }}>

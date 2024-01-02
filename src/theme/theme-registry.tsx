@@ -14,9 +14,15 @@ import useThemeStore from "@/zustand/use-theme";
 declare module "@mui/material/styles" {
   interface Palette {
     customGrey?: typeof CUSTOM_GREY;
+    customBackground?: {
+      neutral: string;
+    };
   }
   interface PaletteOptions {
     customGrey?: typeof CUSTOM_GREY;
+    customBackground?: {
+      neutral: string;
+    };
   }
   interface ThemeOptions {
     customShadows?: typeof customShadows;

@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -8,8 +9,15 @@ import ListItem from "@mui/material/ListItem";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import MediaCard from "@/components/media-card";
+import { Button } from "@mui/material";
+import useThemeStore from "@/zustand/use-theme";
 
 export default function HomePage() {
+  const setToggle = useThemeStore((state) => state.toggleMode);
+
+  const handleToggle = () => {
+    setToggle();
+  };
   return (
     <Box sx={{ display: "flex" }}>
       <div>
@@ -64,6 +72,15 @@ export default function HomePage() {
             <Typography variant="overline" sx={{ fontWeight: 500 }}>
               On this page
             </Typography>
+            <Button
+              variant="outlined"
+              onClick={handleToggle}
+              sx={{
+                mx: 5,
+              }}
+            >
+              Toggle
+            </Button>
           </ListItem>
         </List>
       </Drawer>
