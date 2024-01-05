@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useMemo } from "react";
 // @mui
 import { styled, alpha } from "@mui/material/styles";
@@ -9,17 +10,21 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Link,
+  Link as LinkMui,
   useMediaQuery,
   Badge,
   Container,
 } from "@mui/material";
 import Iconify from "../iconify/Iconify";
+import Link from "next/link";
 // utils
 // components
 
 //
-
+import hciLogo from "../../assets/icons/logos/new_hci_logo.svg";
+import useThemeStore from "@/zustand/use-theme";
+import Image from "next/image";
+import AccountPopover from "./AccountPopover";
 // ----------------------------------------------------------------------
 
 const HEADER_MOBILE = 64;
@@ -80,74 +85,33 @@ const MENU_OPTIONS = [
   },
 ];
 
-export default function Header({
-  user,
-  onOpenNav,
-}: {
-  user?: any;
-  onOpenNav?: any;
-}) {
-  // const [, setModeValueStored] = useLocalStorage('darkMode', null);
-  // const [localCart, setLocalCart] = useLocalStorage('cart', null);
+const USER = {
+  avatar:
+    "https://i.pinimg.com/736x/28/41/71/2841716e64ff836211f9a433bca44147.jpg",
+  firstName: "Pam",
+  lastName: "Pam",
+  email: "PamYeuOi@gmail.com",
+};
 
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+export default function Header() {
+  const [lightIcon, setLightIcon] = React.useState("ic:twotone-light-mode");
+  const mode = useThemeStore((state) => state.mode);
+  const toggleThemeMode = useThemeStore((state) => state.toggleMode);
 
-  // const { cart, getCartStatus } = useSelector((state) => state.cart);
-  // const totalItems = useMemo(() => {
-  //   if (cart?.cartItems?.length) {
-  //     const initialValue = 0;
-  //     return cart.cartItems.reduce((sum, item) => sum + item.quantity, initialValue);
-  //   }
+  useEffect(() => {
+    if (mode === "light") setLightIcon("ic:twotone-light-mode");
+    else setLightIcon("ic:twotone-dark-mode");
+  }, [mode]);
 
-  //   return 0;
-  // }, [cart]);
-
-  // const darkTheme = useAppTheme();
-  // const { setLightMode, setDarkMode } = useAppThemeUpdate();
-
-  // const applyLightMode = () => {
-  //   setLightMode();
-  //   setModeValueStored(false);
-  // };
-
-  // const applyDarkMode = () => {
-  //   setDarkMode();
-  //   setModeValueStored(true);
-  // };
-
-  // const toggleTheme = (isDark) => () => {
-  //   if (isDark === null) {
-  //     if (prefersDarkMode) {
-  //       applyLightMode();
-  //     } else {
-  //       applyLightMode();
-  //     }
-  //   } else if (isDark === false) {
-  //     applyDarkMode();
-  //   } else {
-  //     applyLightMode();
-  //   }
-  // };
-
-  // const icon = () => {
-  //   if (darkTheme === null) {
-  //     if (prefersDarkMode)
-  //       return 'ic:twotone-light-mode';
-  //     else
-  //       return 'material-symbols:dark-mode';
-  //   } else if (darkTheme === false) {
-  //     return 'material-symbols:dark-mode';
-  //   } else {
-  //     return 'ic:twotone-light-mode';
-  //   }
-  // };
+  const toggleTheme = () => {
+    toggleThemeMode();
+  };
 
   return (
     <StyledRoot>
       <Container maxWidth="lg">
         <StyledToolbar>
           <IconButton
-            onClick={onOpenNav}
             sx={{
               mr: 1,
               color: "text.primary",
@@ -158,29 +122,31 @@ export default function Header({
           </IconButton>
 
           <StyledBox sx={{ mr: 2 }}>
-            {/* <Link component={RouterLink} to='/' underline='none' sx={{ display: 'inline-flex', alginItems: 'center' }}>
-              <Box
-                component='img'
-                alt='Logo'
-                src={hciLogo}
-                sx={{ mr: 1 }}
-              />
-              <StyledTextLogo variant='h3' component='h1'>
-                HCI
-              </StyledTextLogo>
-            </Link> */}
+            <LinkMui
+              component={Link}
+              href="/"
+              underline="none"
+              sx={{ display: "inline-flex", alginItems: "center" }}
+            >
+              <Box component={Image} alt="Logo" src={hciLogo} sx={{ mr: 1 }} />
+              <StyledTextLogo variant="h3">HCI</StyledTextLogo>
+            </LinkMui>
           </StyledBox>
 
           {/* <AlgoliaSearch /> */}
 
           <Stack direction="row" spacing={2} sx={{ ml: 2, display: "none" }}>
-            {/* {menuItems.map((item) => (
-              <Link key={item.name} component={RouterLink} to={item.path} underline='none' color='text.primary'>
-                <Button>
-                  {item.name}
-                </Button>
-              </Link>
-            ))} */}
+            {menuItems.map((item) => (
+              <LinkMui
+                key={item.name}
+                component={Link}
+                underline="none"
+                href={item.path}
+                color="text.primary"
+              >
+                <Button>{item.name}</Button>
+              </LinkMui>
+            ))}
           </Stack>
 
           <Box sx={{ flexGrow: 1 }} />
@@ -193,33 +159,42 @@ export default function Header({
               sm: 1,
             }}
           >
-            {/* <IconButton onClick={toggleTheme(darkTheme)}>
-              <Iconify icon={icon()} width={24} height={24} />
-            </IconButton> */}
+            <IconButton onClick={toggleTheme}>
+              <Iconify icon={lightIcon} width={24} height={24} />
+            </IconButton>
 
-            {/* <Link component={RouterLink} to='/checkout' underline='none'>
-              <IconButton size='medium' color='default'>
-                <Badge badgeContent={totalItems} color='error'>
-                  <Iconify icon='ic:outline-shopping-cart' width={28} height={28} />
+            <LinkMui component={Link} href="/checkout" underline="none">
+              <IconButton size="medium" color="default">
+                <Badge badgeContent={10} color="error">
+                  <Iconify
+                    icon="ic:outline-shopping-cart"
+                    width={28}
+                    height={28}
+                  />
                 </Badge>
               </IconButton>
-            </Link> */}
+            </LinkMui>
 
-            {/* {user ? (<AccountPopover user={user} menuOptions={MENU_OPTIONS} onLocalCartChange={setLocalCart} />)
-              : (<Button
-                  LinkComponent={RouterLink}
-                  to='/login'
-                  variant='text'
-                  color='primary'
-                  sx={{
-                    borderRadius: 2
-                  }}
-                >
-                  <Iconify icon='material-symbols:account-circle' width={24} height={24} />
-                  &nbsp;
-                  Login
-                </Button>)
-            } */}
+            {USER ? (
+              <AccountPopover user={USER} menuOptions={MENU_OPTIONS} />
+            ) : (
+              <Button
+                component={Link}
+                href="/login"
+                variant="text"
+                color="primary"
+                sx={{
+                  borderRadius: 2,
+                }}
+              >
+                <Iconify
+                  icon="material-symbols:account-circle"
+                  width={24}
+                  height={24}
+                />
+                &nbsp; Login
+              </Button>
+            )}
           </Stack>
         </StyledToolbar>
       </Container>

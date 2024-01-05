@@ -36,22 +36,22 @@ export default function ThemeRegistry({
 }: {
   children: React.ReactNode;
 }) {
-  const themeStore = useThemeStore((state) => state.mode);
+  const mode = useThemeStore((state) => state.mode);
 
-  console.log("themeStore", themeStore);
+  console.log("themeStore", mode);
 
   React.useEffect(() => {
-    if (themeStore === "light") {
+    if (mode === "dark") {
       document.body.classList.add("light");
       document.body.classList.remove("dark");
     } else {
       document.body.classList.add("dark");
       document.body.classList.remove("light");
     }
-  }, [themeStore]);
+  }, [mode]);
 
   const theme = React.useMemo(() => {
-    if (themeStore === "dark") {
+    if (mode === "dark") {
       return createTheme({
         palette: darkPalette as PaletteOptions,
         shape: { borderRadius: 8 },
@@ -59,7 +59,7 @@ export default function ThemeRegistry({
         shadows: shadows(true) as Shadows,
         customShadows: customShadows,
       });
-    } else if (themeStore === "light") {
+    } else if (mode === "light") {
       return createTheme({
         palette: lightPalette as PaletteOptions,
         shape: { borderRadius: 8 },
@@ -76,7 +76,7 @@ export default function ThemeRegistry({
       shadows: shadows(false) as Shadows,
       customShadows: customShadows,
     });
-  }, []);
+  }, [mode]);
 
   theme.components = componentsOverrides(theme);
 

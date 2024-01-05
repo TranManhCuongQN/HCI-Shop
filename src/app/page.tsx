@@ -10,80 +10,137 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import MediaCard from "@/components/media-card";
 import { Button } from "@mui/material";
-import useThemeStore from "@/zustand/use-theme";
+import Banners from "@/components/banner/Banners";
+import ProductListSection from "@/components/product-list-section/ProductListSection";
+
+const BANNER_CONTENT = [
+  {
+    field: "sub",
+    id: "0",
+    image: "https://source.unsplash.com/random",
+  },
+  {
+    field: "sub",
+    id: "1",
+    image: "https://source.unsplash.com/random",
+  },
+  {
+    field: "sub",
+    id: "2",
+    image: "https://source.unsplash.com/random",
+  },
+  {
+    field: "main",
+    id: "4",
+    image: "https://source.unsplash.com/random",
+  },
+  {
+    field: "main",
+    id: "5",
+    image: "https://source.unsplash.com/random",
+  },
+  {
+    field: "main",
+    id: "6",
+    image: "https://source.unsplash.com/random",
+  },
+];
+
+const laptopsToShow = [
+  {
+    id: "1",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "2",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "3",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "4",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "5",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "6",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "7",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "8",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "9",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+  {
+    id: "10",
+    name: "Laptop 1",
+    media: ["https://source.unsplash.com/random"],
+    price: 100,
+    discount: 0,
+    averageRating: 4,
+  },
+];
 
 export default function HomePage() {
-  const setToggle = useThemeStore((state) => state.toggleMode);
-
-  const handleToggle = () => {
-    setToggle();
-  };
   return (
-    <Box sx={{ display: "flex" }}>
-      <div>
-        <Alert severity="info" sx={{ mt: 2, mb: 5 }}>
-          <AlertTitle>Hello 👋</AlertTitle>
-          This app uses the Next.js App Router and Material UI v5.
-        </Alert>
-        <Grid container rowSpacing={3} columnSpacing={3}>
-          <Grid xs={6}>
-            <MediaCard
-              heading="CMYK"
-              text="The CMYK color model (also known as process color, or four color) is a subtractive color model, based on the CMY color model, used in color printing, and is also used to describe the printing process itself."
-            />
-          </Grid>
-          <Grid xs={6}>
-            <MediaCard
-              heading="HSL and HSV"
-              text="HSL (for hue, saturation, lightness) and HSV (for hue, saturation, value; also known as HSB, for hue, saturation, brightness) are alternative representations of the RGB color model, designed in the 1970s by computer graphics researchers."
-            />
-          </Grid>
-          <Grid xs={6}>
-            <MediaCard
-              heading="RGB"
-              text="An RGB color space is any additive color space based on the RGB color model. RGB color spaces are commonly found describing the input signal to display devices such as television screens and computer monitors."
-            />
-          </Grid>
-          <Grid xs={6}>
-            <MediaCard
-              heading="CIELAB"
-              text="The CIELAB color space, also referred to as L*a*b*, was intended as a perceptually uniform space, where a given numerical change corresponds to a similar perceived change in color."
-            />
-          </Grid>
-        </Grid>
-      </div>
-      <Drawer
-        sx={{
-          width: 320,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: 320,
-            boxSizing: "border-box",
-            top: ["48px", "56px", "64px"],
-            height: "auto",
-            bottom: 0,
-          },
-        }}
-        variant="permanent"
-        anchor="right"
-      >
-        <List sx={{ px: 2 }}>
-          <ListItem disablePadding>
-            <Typography variant="overline" sx={{ fontWeight: 500 }}>
-              On this page
-            </Typography>
-            <Button
-              variant="outlined"
-              onClick={handleToggle}
-              sx={{
-                mx: 5,
-              }}
-            >
-              Toggle
-            </Button>
-          </ListItem>
-        </List>
-      </Drawer>
-    </Box>
+    <>
+      <Box sx={{ py: 2 }}>
+        <Banners banners={BANNER_CONTENT} />
+      </Box>
+      <ProductListSection
+        title="Laptops"
+        products={laptopsToShow}
+        value="Laptop"
+        path="/laptops"
+      />
+    </>
   );
 }

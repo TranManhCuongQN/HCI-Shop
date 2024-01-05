@@ -1,11 +1,21 @@
+"use client";
 import React from "react";
+import {
+  Box,
+  Container,
+  Grid,
+  Link as LinkMui,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Box, Container, Grid, Link, Stack, Typography } from "@mui/material";
 
-import hciLogo from "/icons/logos/new_hci_logo.svg";
-import vnpay from "/icons/payments/ic_vnpay.svg";
-import mastercard from "/icons/payments/ic_mastercard.svg";
-import visa from "/icons/payments/ic_visa.svg";
+import hciLogo from "../../assets/icons/logos/new_hci_logo.svg";
+import vnpay from "../../assets/icons/payments/ic_vnpay.svg";
+import mastercard from "../../assets/icons/payments/ic_mastercard.svg";
+import visa from "../../assets/icons/payments/ic_visa.svg";
+import Image from "next/image";
+import Link from "next/link";
 
 const StyledTextLogo = styled(Typography)(({ theme }) => ({
   background: "linear-gradient(.25turn, #7F0E0E, #0F0D73)",
@@ -38,9 +48,9 @@ const Footer = () => {
               alignItems: "center",
             }}
           >
-            <Box component="img" src={hciLogo} alt="logo" sx={{ mr: 0.5 }} />
+            <Box component={Image} src={hciLogo} alt="logo" sx={{ mr: 0.5 }} />
             <Stack spacing={-1.5}>
-              {/* <StyledTextLogo variant='h6' component='h1'>HCI</StyledTextLogo> */}
+              <StyledTextLogo variant="h6">HCI</StyledTextLogo>
               <Typography variant="h6" component="h1">
                 2023
               </Typography>
@@ -49,13 +59,18 @@ const Footer = () => {
           <Grid container spacing={2}>
             <Grid item xs={2}>
               <Stack spacing={0.5}>
-                {/* {LINKS.map((link) => (
-                  <Link key={link.label} underline='none' component={RouterLink} to={link.path}>
-                    <Typography variant='subtitle2' color='text.secondary'>
+                {LINKS.map((link) => (
+                  <LinkMui
+                    key={link.label}
+                    underline="none"
+                    component={Link}
+                    href={link.path}
+                  >
+                    <Typography variant="subtitle2" color="text.secondary">
                       {link.label}
                     </Typography>
-                  </Link>
-                ))} */}
+                  </LinkMui>
+                ))}
               </Stack>
             </Grid>
             <Grid item xs={2}>
@@ -65,7 +80,7 @@ const Footer = () => {
                 </Typography>
                 <Stack spacing={1} direction="row">
                   <Box
-                    component="img"
+                    component={Image}
                     src={vnpay}
                     alt="vnpay"
                     sx={{
@@ -74,7 +89,7 @@ const Footer = () => {
                     }}
                   />
                   <Box
-                    component="img"
+                    component={Image}
                     src={mastercard}
                     alt="mastercard"
                     sx={{
@@ -83,7 +98,7 @@ const Footer = () => {
                     }}
                   />
                   <Box
-                    component="img"
+                    component={Image}
                     src={visa}
                     alt="visa"
                     sx={{
