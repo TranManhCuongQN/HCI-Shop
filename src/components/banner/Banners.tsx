@@ -22,11 +22,17 @@ const Banners = ({
   }, [banners]);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={7}>
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        mx: "auto",
+      }}
+    >
+      <Grid item xs={12} md={8}>
         <MainBannerSlider banners={slideBanners} />
       </Grid>
-      <Grid item xs={12} md={5}>
+      <Grid item xs={12} md={4}>
         <Stack spacing={2.5}>
           {secondaryBanners?.map((banner) => (
             <SecondaryBanner key={banner?.id} image={banner?.image} />

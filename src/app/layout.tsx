@@ -1,13 +1,8 @@
-import * as React from "react";
 import ThemeRegistry from "../theme/theme-registry";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Footer from "@/components/footer/Footer";
-import { Box, Container } from "@mui/material";
 import Header from "@/components/header/Header";
-
-export const metadata = {
-  title: "Next.js",
-  description: "Tutorial Next.js",
-};
+import { ContainerPage } from "./components/ContainerPage";
 
 export default function RootLayout({
   children,
@@ -17,21 +12,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry>
-          <Box
-            sx={{
-              minHeight: "100%",
-              overflow: "hidden",
-              position: "relative",
-            }}
-          >
-            <Header />
-            <Container maxWidth="lg" sx={{ mt: 8, mb: 20 }}>
-              {children}
-            </Container>
-            <Footer />
-          </Box>
-        </ThemeRegistry>
+        <AppRouterCacheProvider>
+          <ThemeRegistry>
+            <div
+              style={{
+                minHeight: "100%",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              <Header />
+              {/* <Container maxWidth="lg" sx={{ mt: 8, mb: 20 }}> */}
+              <ContainerPage> {children}</ContainerPage>
+
+              {/* </Container> */}
+              <Footer />
+            </div>
+          </ThemeRegistry>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

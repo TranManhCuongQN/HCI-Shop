@@ -13,11 +13,13 @@ const RHFRadioGroup = ({
   id,
   label,
   items,
+  row,
 }: {
   name: string;
   id: string;
   label: string;
   items: string[];
+  row?: boolean;
 }) => {
   const { control } = useFormContext();
   return (
@@ -27,7 +29,7 @@ const RHFRadioGroup = ({
         name={name}
         control={control}
         render={({ field }) => (
-          <RadioGroup {...field} arial-labelledby={id}>
+          <RadioGroup {...field} arial-labelledby={id} row>
             {items.map((item) => (
               <FormControlLabel
                 key={item}

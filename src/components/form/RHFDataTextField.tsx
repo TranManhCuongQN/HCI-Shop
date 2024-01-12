@@ -3,7 +3,13 @@ import { useFormContext, Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import { fYMDate } from "../../utils/format-time";
 
-const RHFDateTextField = ({ name }: { name: string }) => {
+const RHFDateTextField = ({
+  name,
+  label,
+}: {
+  name: string;
+  label?: string;
+}) => {
   const { control } = useFormContext();
 
   return (
@@ -21,6 +27,7 @@ const RHFDateTextField = ({ name }: { name: string }) => {
           InputLabelProps={{
             shrink: true,
           }}
+          label={label}
         />
       )}
     />

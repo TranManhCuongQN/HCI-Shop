@@ -99,8 +99,8 @@ export default function Header() {
   const toggleThemeMode = useThemeStore((state) => state.toggleMode);
 
   useEffect(() => {
-    if (mode === "light") setLightIcon("ic:twotone-light-mode");
-    else setLightIcon("ic:twotone-dark-mode");
+    if (mode === "light") setLightIcon("ic:twotone-dark-mode");
+    else setLightIcon("ic:twotone-light-mode");
   }, [mode]);
 
   const toggleTheme = () => {
@@ -108,96 +108,103 @@ export default function Header() {
   };
 
   return (
-    <StyledRoot>
-      <Container maxWidth="lg">
-        <StyledToolbar>
-          <IconButton
-            sx={{
-              mr: 1,
-              color: "text.primary",
-              display: { lg: "none" },
-            }}
-          >
-            <Iconify icon="eva:menu-2-fill" />
-          </IconButton>
-
-          <StyledBox sx={{ mr: 2 }}>
-            <LinkMui
-              component={Link}
-              href="/"
-              underline="none"
-              sx={{ display: "inline-flex", alginItems: "center" }}
+    <header>
+      <StyledRoot>
+        <Container maxWidth="lg">
+          <StyledToolbar>
+            <IconButton
+              sx={{
+                mr: 1,
+                color: "text.primary",
+                display: { lg: "none" },
+              }}
             >
-              <Box component={Image} alt="Logo" src={hciLogo} sx={{ mr: 1 }} />
-              <StyledTextLogo variant="h3">HCI</StyledTextLogo>
-            </LinkMui>
-          </StyledBox>
-
-          {/* <AlgoliaSearch /> */}
-
-          <Stack direction="row" spacing={2} sx={{ ml: 2, display: "none" }}>
-            {menuItems.map((item) => (
-              <LinkMui
-                key={item.name}
-                component={Link}
-                underline="none"
-                href={item.path}
-                color="text.primary"
-              >
-                <Button>{item.name}</Button>
-              </LinkMui>
-            ))}
-          </Stack>
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={{
-              xs: 0.5,
-              sm: 1,
-            }}
-          >
-            <IconButton onClick={toggleTheme}>
-              <Iconify icon={lightIcon} width={24} height={24} />
+              <Iconify icon="eva:menu-2-fill" />
             </IconButton>
 
-            <LinkMui component={Link} href="/checkout" underline="none">
-              <IconButton size="medium" color="default">
-                <Badge badgeContent={10} color="error">
-                  <Iconify
-                    icon="ic:outline-shopping-cart"
-                    width={28}
-                    height={28}
-                  />
-                </Badge>
-              </IconButton>
-            </LinkMui>
-
-            {USER ? (
-              <AccountPopover user={USER} menuOptions={MENU_OPTIONS} />
-            ) : (
-              <Button
+            <StyledBox sx={{ mr: 2 }}>
+              <LinkMui
                 component={Link}
-                href="/login"
-                variant="text"
-                color="primary"
-                sx={{
-                  borderRadius: 2,
-                }}
+                href="/"
+                underline="none"
+                sx={{ display: "inline-flex", alginItems: "center" }}
               >
-                <Iconify
-                  icon="material-symbols:account-circle"
-                  width={24}
-                  height={24}
+                <Box
+                  component={Image}
+                  alt="Logo"
+                  src={hciLogo}
+                  sx={{ mr: 1 }}
                 />
-                &nbsp; Login
-              </Button>
-            )}
-          </Stack>
-        </StyledToolbar>
-      </Container>
-    </StyledRoot>
+                <StyledTextLogo variant="h3">HCI</StyledTextLogo>
+              </LinkMui>
+            </StyledBox>
+
+            {/* <AlgoliaSearch /> */}
+
+            <Stack direction="row" spacing={2} sx={{ ml: 2, display: "none" }}>
+              {menuItems.map((item) => (
+                <LinkMui
+                  key={item.name}
+                  component={Link}
+                  underline="none"
+                  href={item.path}
+                  color="text.primary"
+                >
+                  <Button>{item.name}</Button>
+                </LinkMui>
+              ))}
+            </Stack>
+
+            <Box sx={{ flexGrow: 1 }} />
+
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={{
+                xs: 0.5,
+                sm: 1,
+              }}
+            >
+              <IconButton onClick={toggleTheme}>
+                <Iconify icon={lightIcon} width={24} height={24} />
+              </IconButton>
+
+              <LinkMui component={Link} href="/checkout" underline="none">
+                <IconButton size="medium" color="default">
+                  <Badge badgeContent={10} color="error">
+                    <Iconify
+                      icon="ic:outline-shopping-cart"
+                      width={28}
+                      height={28}
+                    />
+                  </Badge>
+                </IconButton>
+              </LinkMui>
+
+              {USER ? (
+                <AccountPopover user={USER} menuOptions={MENU_OPTIONS} />
+              ) : (
+                <Button
+                  component={Link}
+                  href="/login"
+                  variant="text"
+                  color="primary"
+                  sx={{
+                    borderRadius: 2,
+                  }}
+                >
+                  <Iconify
+                    icon="material-symbols:account-circle"
+                    width={24}
+                    height={24}
+                  />
+                  &nbsp; Login
+                </Button>
+              )}
+            </Stack>
+          </StyledToolbar>
+        </Container>
+      </StyledRoot>
+    </header>
   );
 }

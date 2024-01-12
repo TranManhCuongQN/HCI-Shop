@@ -31,88 +31,95 @@ const LINKS = [
 
 const Footer = () => {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        minHeight: 120,
-        backgroundColor: (theme) => theme.palette.background.default,
-        position: "absolute",
-        top: `calc(100% - 120px)`,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack spacing={8} direction="row">
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <Box component={Image} src={hciLogo} alt="logo" sx={{ mr: 0.5 }} />
-            <Stack spacing={-1.5}>
-              <StyledTextLogo variant="h6">HCI</StyledTextLogo>
-              <Typography variant="h6" component="h1">
-                2023
-              </Typography>
-            </Stack>
-          </Box>
-          <Grid container spacing={2}>
-            <Grid item xs={2}>
-              <Stack spacing={0.5}>
-                {LINKS.map((link) => (
-                  <LinkMui
-                    key={link.label}
-                    underline="none"
-                    component={Link}
-                    href={link.path}
-                  >
-                    <Typography variant="subtitle2" color="text.secondary">
-                      {link.label}
-                    </Typography>
-                  </LinkMui>
-                ))}
-              </Stack>
-            </Grid>
-            <Grid item xs={2}>
-              <Stack spacing={0.5}>
-                <Typography variant="subtitle2" color="text.secondary">
-                  Support Payments
+    <footer>
+      <Box
+        sx={{
+          width: "100%",
+          minHeight: 120,
+          backgroundColor: (theme) => theme.palette.background.default,
+          position: "absolute",
+          top: `calc(100% - 120px)`,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack spacing={8} direction="row">
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component={Image}
+                src={hciLogo}
+                alt="logo"
+                sx={{ mr: 0.5 }}
+              />
+              <Stack spacing={-1.5}>
+                <StyledTextLogo variant="h6">HCI</StyledTextLogo>
+                <Typography variant="h6" component="h1">
+                  2023
                 </Typography>
-                <Stack spacing={1} direction="row">
-                  <Box
-                    component={Image}
-                    src={vnpay}
-                    alt="vnpay"
-                    sx={{
-                      width: 32,
-                      height: 32,
-                    }}
-                  />
-                  <Box
-                    component={Image}
-                    src={mastercard}
-                    alt="mastercard"
-                    sx={{
-                      width: 32,
-                      height: 32,
-                    }}
-                  />
-                  <Box
-                    component={Image}
-                    src={visa}
-                    alt="visa"
-                    sx={{
-                      width: 32,
-                      height: 32,
-                    }}
-                  />
-                </Stack>
               </Stack>
+            </Box>
+            <Grid container spacing={2}>
+              <Grid item xs={2}>
+                <Stack spacing={0.5}>
+                  {LINKS.map((link) => (
+                    <LinkMui
+                      key={link.label}
+                      underline="none"
+                      component={Link}
+                      href={link.path}
+                    >
+                      <Typography variant="subtitle2" color="text.secondary">
+                        {link.label}
+                      </Typography>
+                    </LinkMui>
+                  ))}
+                </Stack>
+              </Grid>
+              <Grid item xs={2}>
+                <Stack spacing={0.5}>
+                  <Typography variant="subtitle2" color="text.secondary">
+                    Support Payments
+                  </Typography>
+                  <Stack spacing={1} direction="row">
+                    <Box
+                      component={Image}
+                      src={vnpay}
+                      alt="vnpay"
+                      sx={{
+                        width: 32,
+                        height: 32,
+                      }}
+                    />
+                    <Box
+                      component={Image}
+                      src={mastercard}
+                      alt="mastercard"
+                      sx={{
+                        width: 32,
+                        height: 32,
+                      }}
+                    />
+                    <Box
+                      component={Image}
+                      src={visa}
+                      alt="visa"
+                      sx={{
+                        width: 32,
+                        height: 32,
+                      }}
+                    />
+                  </Stack>
+                </Stack>
+              </Grid>
             </Grid>
-          </Grid>
-        </Stack>
-      </Container>
-    </Box>
+          </Stack>
+        </Container>
+      </Box>
+    </footer>
   );
 };
 

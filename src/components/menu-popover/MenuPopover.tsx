@@ -44,7 +44,7 @@ const MenuPopover = ({
         },
       }}
     >
-      <ArrowStyle className="arrow" />
+      <ArrowStyle />
       {children}
     </Popover>
   );

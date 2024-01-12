@@ -2,12 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "res.cloudinary.com",
-      "placehold.co",
-      "js-post-api.herokuapp.com",
-      "i.pinimg.com",
-      "source.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

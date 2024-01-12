@@ -6,8 +6,8 @@ const FormProvider = ({
   methods,
 }: {
   children: React.ReactNode;
-  onSubmit: (data: any) => void;
-  methods: any;
+  onSubmit?: (data: any) => void;
+  methods?: any;
 }) => {
   return (
     <Form {...methods}>

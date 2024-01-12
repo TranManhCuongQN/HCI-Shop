@@ -1,8 +1,22 @@
 import React from "react";
 import { useFormContext, Controller } from "react-hook-form";
-import { TextField } from "@mui/material";
+import { TextField, TextFieldProps } from "@mui/material";
 
-const RHFTextField = ({ name }: { name: string }) => {
+const RHFTextField = ({
+  name,
+  label,
+  multiline,
+  minRows,
+  type,
+  InputProps,
+}: {
+  name: string;
+  label?: string;
+  multiline?: boolean;
+  minRows?: number;
+  type?: TextFieldProps["type"];
+  InputProps?: TextFieldProps["InputProps"];
+}) => {
   const { control } = useFormContext();
 
   return (
@@ -20,6 +34,11 @@ const RHFTextField = ({ name }: { name: string }) => {
           }
           error={!!error}
           helperText={error?.message}
+          label={label}
+          multiline={multiline}
+          type={type}
+          InputProps={InputProps}
+          minRows={minRows}
         />
       )}
     />

@@ -1,3 +1,4 @@
+"use client";
 import React, { useMemo } from "react";
 import { alpha, styled } from "@mui/material/styles";
 import {
@@ -102,8 +103,7 @@ const ProductCard = ({ product }: { product: any }) => {
           <Image
             src={media[0]}
             alt={name}
-            width={500}
-            height={300}
+            fill
             style={{
               objectFit: "cover",
               objectPosition: "center",

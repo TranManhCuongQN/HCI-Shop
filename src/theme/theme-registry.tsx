@@ -9,7 +9,7 @@ import typography from "./typography";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
 import shadows, { customShadows } from "./shadows";
 import componentsOverrides from "./overrides";
-import useThemeStore from "@/zustand/use-theme";
+import useThemeStore from "../zustand/use-theme";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -37,8 +37,7 @@ export default function ThemeRegistry({
   children: React.ReactNode;
 }) {
   const mode = useThemeStore((state) => state.mode);
-
-  console.log("themeStore", mode);
+  const setMode = useThemeStore((state) => state.setMode);
 
   React.useEffect(() => {
     if (mode === "dark") {
@@ -70,7 +69,10 @@ export default function ThemeRegistry({
     }
 
     return createTheme({
-      palette: lightPalette as PaletteOptions,
+      palette:
+        mode === "dark"
+          ? (darkPalette as PaletteOptions)
+          : (lightPalette as PaletteOptions),
       shape: { borderRadius: 8 },
       typography: typography as TypographyOptions,
       shadows: shadows(false) as Shadows,
