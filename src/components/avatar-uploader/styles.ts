@@ -45,7 +45,8 @@ export const StyledImageWrapper = styled("span")(({ theme }) => ({
 export const StyledBoxImage = styled(Image)(({ theme }) => ({
   width: "100%",
   height: "100%",
-  objectFit: "cover",
+  objectFit: "fill",
+  objectPosition: "center",
 }));
 
 export const StyledAvatar = styled(Avatar)(({ theme }) => ({

@@ -8,7 +8,9 @@ import RHFTextField from "@/components/form/RHFTextField";
 import RHFDateTextField from "@/components/form/RHFDataTextField";
 import RHFRadioGroup from "@/components/form/RHFRadioGroup";
 import AvatarUploader from "@/components/avatar-uploader/AvatarUploader";
-
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 const genders = ["Male", "Female"];
 
 const user = {
@@ -20,7 +22,37 @@ const user = {
 };
 
 const AccountSettings = () => {
+  const ProfileSchema = Yup.object().shape({
+    firstName: Yup.string().required("First Name is required"),
+    lastName: Yup.string().required("Last Name is required"),
+    phone: Yup.string().required("Phone is required"),
+    birthDate: Yup.string().required("Date of birth is required"),
+    gender: Yup.string(),
+    image: Yup.mixed(),
+  });
+
+  // const defaultValues = {
+  //   firstName: user?.firstName,
+  //   lastName: user?.lastName,
+  //   phone: user?.phone,
+  //   address: user?.address,
+  //   birthDate: user?.birthDate,
+  //   gender: user?.gender,
+  //   avatar: ''
+  // };
+
+  const methods = useForm({
+    resolver: yupResolver(ProfileSchema),
+    // defaultValues
+  });
+
+  const { handleSubmit, reset } = methods;
   const { enqueueSnackbar } = useSnackbar();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    enqueueSnackbar("Update profile successfully", { variant: "success" });
+  });
 
   return (
     <Box sx={{ mt: 4 }}>
@@ -29,7 +61,7 @@ const AccountSettings = () => {
       </Typography>
       <Divider sx={{ mb: 2 }} />
       <Box>
-        <FormProvider>
+        <FormProvider methods={methods} onSubmit={onSubmit}>
           <Grid
             container
             spacing={2}
@@ -42,7 +74,7 @@ const AccountSettings = () => {
           >
             <Grid item xs={12} md={8}>
               <Stack spacing={2}>
-                <RHFTextField name="firstName" />
+                <RHFTextField name="firstName" label="First Name" />
                 <RHFTextField name="lastName" label="Last Name" />
                 <RHFTextField name="phone" label="Phone" />
                 <RHFDateTextField name="birthDate" label="Date of birth" />
@@ -52,12 +84,6 @@ const AccountSettings = () => {
                   label="Gender"
                   items={genders}
                   row
-                />
-                <RHFTextField
-                  multiline
-                  minRows={3}
-                  name="address"
-                  label="Address"
                 />
               </Stack>
               <Box sx={{ mt: 2 }}>

@@ -28,7 +28,10 @@ export default function ForgotPassword(props: IForgotPasswordProps) {
     newPassword: Yup.string().required("New password is required"),
     confirmNewPassword: Yup.string()
       .required("Confirm new password is required")
-      .oneOf([Yup.ref("newPassword")], "Passwords must match"),
+      .oneOf(
+        [Yup.ref("newPassword")],
+        "Confirm Password must match New Password"
+      ),
   });
 
   const defaultValues = {

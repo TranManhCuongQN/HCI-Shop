@@ -21,9 +21,9 @@ const navConfig = [
     icon: getIcon("mdi:password"),
   },
   {
-    title: "account",
-    path: "/settings/admin",
-    icon: getIcon("ep:setting"),
+    title: "address",
+    path: "/settings/address",
+    icon: getIcon("mdi:map-marker-outline"),
   },
 ];
 
@@ -73,7 +73,7 @@ const Nav = () => {
         </Link>
       </Box>
 
-      <NavSection data={navConfig} miniDrawer={false} />
+      <NavSection data={navConfig} />
     </Box>
   );
 };

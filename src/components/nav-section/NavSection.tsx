@@ -1,27 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { alpha, useTheme } from "@mui/material/styles";
-import {
-  Box,
-  Collapse,
-  Link as MuiLink,
-  List,
-  ListItemText,
-  MenuItem,
-  Popover,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, List, ListItemText } from "@mui/material";
 
-import Iconify from "../iconify/Iconify";
 import { StyledNavItem, StyledNavItemIcon } from "./styles";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
-const NavItem = ({ item, miniDrawer }: { item: any; miniDrawer: any }) => {
+const NavItem = ({ item }: { item: any }) => {
   const { path, title, icon, info, children } = item;
   const theme = useTheme();
-  const pathname = usePathname();
+  const pathName = usePathname();
+  const [active, setActive] = React.useState<string>(pathName.split("/")[2]);
+
+  useEffect(() => {
+    setActive(pathName.split("/")[2]);
+  }, [pathName]);
 
   return (
     <StyledNavItem
@@ -36,34 +29,16 @@ const NavItem = ({ item, miniDrawer }: { item: any; miniDrawer: any }) => {
           fontWeight: "fontWeightBold",
         },
       }}
+      active={active}
     >
-      {miniDrawer ? (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
-          <Typography variant="subtitle2">{title}</Typography>
-        </Box>
-      ) : (
-        <>
-          <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
-          <ListItemText primary={title} />
-        </>
-      )}
-      {info && info}
+      <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
+      <ListItemText primary={title} />
     </StyledNavItem>
   );
 };
 
 const NavSection = ({
   data = [],
-  miniDrawer = false,
   ...other
 }: {
   data: {
@@ -71,13 +46,12 @@ const NavSection = ({
     path: string;
     icon: any;
   }[];
-  miniDrawer: boolean;
 }) => {
   return (
     <Box {...other}>
       <List disablePadding sx={{ p: 1 }}>
         {data.map((item) => (
-          <NavItem key={item.title} item={item} miniDrawer={miniDrawer} />
+          <NavItem key={item.title} item={item} />
         ))}
       </List>
     </Box>

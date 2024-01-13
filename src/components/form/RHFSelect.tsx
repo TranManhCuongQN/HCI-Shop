@@ -14,12 +14,16 @@ const RHFSelect = ({
   label,
   defaultValue,
   data,
+  onChange,
+  disabled,
 }: {
   name: string;
-  id: string;
-  label: string;
-  defaultValue: any;
-  data: any[];
+  id?: string;
+  label?: string;
+  defaultValue?: any;
+  data?: any[];
+  onChange?: (data: any) => void;
+  disabled?: boolean;
 }) => {
   const { control } = useFormContext();
   const [open, setOpen] = useState(false);
@@ -37,6 +41,7 @@ const RHFSelect = ({
               <Select
                 {...field}
                 fullWidth
+                disabled={disabled}
                 labelId={id}
                 label={label}
                 value={field.value}
@@ -44,7 +49,10 @@ const RHFSelect = ({
                 onClose={() => {
                   setOpen(false);
                 }}
-                onChange={(event) => field.onChange(event.target.value)}
+                onChange={(event) => {
+                  field.onChange(event.target.value);
+                  onChange && onChange(event.target.value);
+                }}
                 onOpen={() => setOpen(true)}
                 open={open}
                 displayEmpty={true}
@@ -63,7 +71,7 @@ const RHFSelect = ({
                 defaultValue={defaultValue}
               >
                 {data?.map((item) => (
-                  <MenuItem key={item.id} value={item.id}>
+                  <MenuItem key={item.name} value={item.name}>
                     {item.name}
                   </MenuItem>
                 ))}

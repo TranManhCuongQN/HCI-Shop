@@ -33,7 +33,7 @@ export default function SignUpPage(props: ISignUpPageProps) {
     password: Yup.string().required("Password is required"),
     confirmPassword: Yup.string()
       .required("Confirm Password is required")
-      .oneOf([Yup.ref("password")], "Passwords must match"),
+      .oneOf([Yup.ref("password")], "Confirm Password must match Password"),
   });
 
   const defaultValues = {

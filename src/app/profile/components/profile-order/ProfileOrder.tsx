@@ -17,14 +17,16 @@ const orders = [
       {
         id: "1",
         productName: "Laptop 1",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/d7/47/d1/d747d1ca901acf7ed3561ffcd79a0720.jpg",
         quantity: 2,
         productPrice: 100,
       },
       {
         id: "2",
         productName: "Laptop 1",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/75/b0/7f/75b07fe969f16e508bebf5addc4d6a62.jpg",
         quantity: 2,
         productPrice: 100,
       },
@@ -40,14 +42,16 @@ const orders = [
       {
         id: "1",
         productName: "Laptop 1",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/f7/29/8a/f7298a9abb9a0f0550f9d50e8e3ba517.jpg",
         quantity: 2,
         productPrice: 100,
       },
       {
         id: "2",
         productName: "Laptop 2",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/59/9e/82/599e82478d4c9a53166027e677537d85.jpg",
         quantity: 2,
         productPrice: 100,
       },
@@ -63,14 +67,16 @@ const orders = [
       {
         id: "1",
         productName: "Laptop 1",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/02/1a/d0/021ad0d74c29cb8b55029d50b9b3f6a4.jpg",
         quantity: 2,
         productPrice: 100,
       },
       {
         id: "2",
         productName: "Laptop 2",
-        image: "https://source.unsplash.com/random",
+        image:
+          "https://i.pinimg.com/564x/5b/7e/65/5b7e6571e6a6a8a9c65d48b9ae8f7af6.jpg",
         quantity: 2,
         productPrice: 100,
       },

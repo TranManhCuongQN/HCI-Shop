@@ -11,7 +11,8 @@ const SecondaryBanner = ({ image }: { image: string }) => {
         height={120}
         style={{
           borderRadius: 5,
-          objectFit: "cover",
+          objectFit: "fill",
+          objectPosition: "center",
         }}
       />
     </>

@@ -69,11 +69,6 @@ const menuItems = [
 
 const MENU_OPTIONS = [
   {
-    label: "Home",
-    icon: "eva:home-fill",
-    path: "/",
-  },
-  {
     label: "Profile",
     icon: "eva:person-fill",
     path: "/profile",
@@ -81,7 +76,7 @@ const MENU_OPTIONS = [
   {
     label: "Settings",
     icon: "eva:settings-2-fill",
-    path: "/settings",
+    path: "/settings/profile",
   },
 ];
 

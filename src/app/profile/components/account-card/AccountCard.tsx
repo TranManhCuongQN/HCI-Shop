@@ -83,7 +83,7 @@ const AccountCard = () => {
       </StyledBoxAvatar>
       <Button
         fullWidth
-        color="inherit"
+        color="primary"
         variant="contained"
         disableElevation
         LinkComponent={Link}

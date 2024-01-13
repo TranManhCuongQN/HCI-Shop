@@ -29,7 +29,7 @@ const RHFRadioGroup = ({
         name={name}
         control={control}
         render={({ field }) => (
-          <RadioGroup {...field} arial-labelledby={id} row>
+          <RadioGroup {...field} arial-labelledby={id} row defaultValue="Male">
             {items.map((item) => (
               <FormControlLabel
                 key={item}

@@ -3,6 +3,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { ContainerPage } from "./components/ContainerPage";
+import "@/styles/scroll.css";
 
 export default function RootLayout({
   children,
@@ -22,10 +23,7 @@ export default function RootLayout({
               }}
             >
               <Header />
-              {/* <Container maxWidth="lg" sx={{ mt: 8, mb: 20 }}> */}
-              <ContainerPage> {children}</ContainerPage>
-
-              {/* </Container> */}
+              <ContainerPage>{children}</ContainerPage>
               <Footer />
             </div>
           </ThemeRegistry>

@@ -4,11 +4,12 @@ import { ListItemIcon, ListItemButton } from "@mui/material";
 import Link from "next/link";
 
 export const StyledNavItem = styled(
-  (props: { children?: React.ReactNode; path?: string }) => (
+  (props: { children?: React.ReactNode; path?: string; active?: string }) => (
     <ListItemButton
       disableGutters
       {...props}
       LinkComponent={Link}
+      selected={props.active === props.path?.split("/")[2]}
       href={props.path as string}
     >
       {props.children}

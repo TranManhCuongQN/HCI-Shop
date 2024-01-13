@@ -55,7 +55,7 @@ const AvatarUploader = (props: AvatarUploaderInterface) => {
       <StyledDisplayUploader component="span">
         <StyledImageWrapper>
           {image ? (
-            <StyledBoxImage alt="avatar" src={image} />
+            <StyledBoxImage alt="avatar" src={image} fill />
           ) : (
             <StyledAvatar />
           )}

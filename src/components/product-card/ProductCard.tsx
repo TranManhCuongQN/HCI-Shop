@@ -103,6 +103,7 @@ const ProductCard = ({ product }: { product: any }) => {
           <Image
             src={media[0]}
             alt={name}
+            sizes="100%"
             fill
             style={{
               objectFit: "cover",
@@ -169,7 +170,6 @@ const ProductCard = ({ product }: { product: any }) => {
           borderBottomLeftRadius: "8px",
           borderBottomRightRadius: "8px",
         }}
-        className="card-action"
       >
         <Grid container spacing={1}>
           <Grid item xs={7}>
