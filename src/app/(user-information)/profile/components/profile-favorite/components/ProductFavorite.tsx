@@ -3,7 +3,7 @@ import { Box, Button, Link as MuiLink, Stack, Typography } from "@mui/material";
 import { useSnackbar } from "notistack";
 import Link from "next/link";
 import Iconify from "@/components/iconify/Iconify";
-import { fToNow } from "@/utils";
+import { fToNow } from "@/utils/format-time";
 
 const ProductFavorite = ({
   favorite,
