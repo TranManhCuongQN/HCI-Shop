@@ -5,7 +5,7 @@ import { useSnackbar } from "notistack";
 
 import ProductItem from "./ProductItem";
 import { STATUS } from "@/constants/order-status";
-import { fDateTime } from "@/utils";
+import { fDateTime } from "@/utils/format-time";
 import Label from "@/components/label/Label";
 import { fCurrency } from "@/utils/format-number";
 import Link from "next/link";

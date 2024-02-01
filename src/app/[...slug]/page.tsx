@@ -11,24 +11,6 @@ import QuantityControl from "@/components/quantity-control/QuantityControl";
 import { useParams } from "next/navigation";
 import { getId } from "@/utils/common";
 
-export interface IProductIdPageProps {
-  productSingle: {
-    media: string[];
-    name: string;
-    averageRating: number;
-    numReviews: number;
-    price: number;
-    discount: number;
-    warehouse: number;
-    specifications: string;
-    sameOriginProducts: {
-      realPrice: number;
-      id: string;
-      specifications: string;
-    }[];
-  };
-}
-
 const variantColors = [
   {
     id: "1",
@@ -45,10 +27,38 @@ const variantColors = [
   },
 ];
 
-export default function ProductIdPage(props: IProductIdPageProps) {
+const productSingle = {
+  media: [
+    "https://i.pinimg.com/564x/02/1a/d0/021ad0d74c29cb8b55029d50b9b3f6a4.jpg",
+    "https://i.pinimg.com/564x/59/9e/82/599e82478d4c9a53166027e677537d85.jpg",
+    "https://i.pinimg.com/564x/07/11/da/0711da2ceb094dbbb08e22d06339d200.jpg",
+    "https://i.pinimg.com/736x/5f/e2/11/5fe21127aa88fa886950ce60444a3c7b.jpg",
+    "https://i.pinimg.com/564x/db/f5/6e/dbf56e5a46e684c3f65b96dccbff9233.jpg",
+  ],
+  name: "Product Name",
+  averageRating: 4.5,
+  numReviews: 10,
+  price: 10000000,
+  discount: 20,
+  warehouse: 10,
+  specifications: "S",
+  sameOriginProducts: [
+    {
+      realPrice: 1000000,
+      id: "1",
+      specifications: "S",
+    },
+    {
+      realPrice: 2000000,
+      id: "2",
+      specifications: "M",
+    },
+  ],
+};
+
+export default function ProductIdPage() {
   const params = useParams();
   const id = getId(params.slug[1]);
-  const { productSingle } = props;
   const [quantity, setQuantity] = React.useState(1);
 
   const handleIncreaseQuantity = () => {

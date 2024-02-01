@@ -4,6 +4,8 @@ import * as React from "react";
 import Slider from "react-slick";
 import SubSlide from "./SubSlide";
 import MainSlide from "./MainSlide";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export interface ISyncSliderProps {
   images: string[];
@@ -11,6 +13,7 @@ export interface ISyncSliderProps {
 
 export default function SyncSlider(props: ISyncSliderProps) {
   const { images } = props;
+
   const [mainNav, setMainNav] = React.useState<Slider | null>(null);
   const [subNav, setSubNav] = React.useState<Slider | null>(null);
   const mainSliderRef = React.useRef<Slider | null>(null);
