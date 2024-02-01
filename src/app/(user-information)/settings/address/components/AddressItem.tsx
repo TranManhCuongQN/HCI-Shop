@@ -65,7 +65,7 @@ export default function AddressItem(props: IAddressItemProps) {
             </Typography>
           </Stack>
         </Stack>
-        <Stack direction="row" spacing={1.5}>
+        <Stack direction="row" spacing={1}>
           <Tooltip title="Edit" onClick={() => setOpenEdit(true)}>
             <IconButton>
               <ModeEditOutlineIcon />

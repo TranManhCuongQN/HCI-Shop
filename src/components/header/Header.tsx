@@ -22,9 +22,9 @@ import Link from "next/link";
 
 //
 import hciLogo from "../../assets/icons/logos/new_hci_logo.svg";
-import useThemeStore from "@/zustand/use-theme";
 import Image from "next/image";
 import AccountPopover from "./AccountPopover";
+import useThemeStore from "@/zustand/use-trheme";
 // ----------------------------------------------------------------------
 
 const HEADER_MOBILE = 64;
@@ -91,7 +91,7 @@ const USER = {
 export default function Header() {
   const [lightIcon, setLightIcon] = React.useState("ic:twotone-light-mode");
   const mode = useThemeStore((state) => state.mode);
-  const toggleThemeMode = useThemeStore((state) => state.toggleMode);
+  const toogleMode = useThemeStore((state) => state.toggleMode);
 
   useEffect(() => {
     if (mode === "light") setLightIcon("ic:twotone-dark-mode");
@@ -99,7 +99,7 @@ export default function Header() {
   }, [mode]);
 
   const toggleTheme = () => {
-    toggleThemeMode();
+    toogleMode();
   };
 
   return (

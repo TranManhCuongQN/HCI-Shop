@@ -17,6 +17,7 @@ import Image from "next/image";
 import { fCurrency } from "@/utils/format-number";
 import Iconify from "../iconify/Iconify";
 import Label from "../label/Label";
+import { convertSlugToUrl } from "@/utils/common";
 
 const StyledDefaultIconButton = styled(IconButton)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.grey[900], 0.08),
@@ -33,7 +34,7 @@ const StyledRedIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = ({ product, value }: { product: any; value: string }) => {
   const { id, name, media, price, discount, averageRating } = product;
   const isFavorited = false;
   const { enqueueSnackbar } = useSnackbar();
@@ -99,7 +100,17 @@ const ProductCard = ({ product }: { product: any }) => {
             <Iconify icon="mdi:cards-heart" width={24} height={24} />
           </StyledDefaultIconButton>
         )}
-        <MuiLink component={Link} href={`/products/${id}`}>
+        <MuiLink
+          component={Link}
+          href={`/${value}/${convertSlugToUrl(name)}-${id}`}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        >
           <Image
             src={media[0]}
             alt={name}
@@ -117,7 +128,7 @@ const ProductCard = ({ product }: { product: any }) => {
           color="inherit"
           underline="hover"
           component={Link}
-          href={`/products/${id}`}
+          href={`/${value}/${convertSlugToUrl(name)}-${id}`}
         >
           <Typography variant="subtitle2" noWrap>
             {name}

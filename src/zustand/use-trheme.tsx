@@ -9,19 +9,14 @@ interface ThemeState {
 }
 
 const useThemeStore = create<ThemeState>()((set) => {
-  if (typeof window === "undefined") {
-    console.log("mode server", Cookies.get("mode"));
-  } else {
-    console.log("mode client", Cookies.get("mode"));
-  }
   return {
-    mode: (Cookies.get("mode") as "dark" | "light") || "dark",
+    mode: "dark",
     setMode: (mode) => {
       return set({ mode });
     },
     toggleMode: () =>
       set((state) => {
-        Cookies.set("mode", state.mode === "light" ? "dark" : "light");
+        Cookies.set("theme", state.mode === "light" ? "dark" : "light");
         return { mode: state.mode === "light" ? "dark" : "light" };
       }),
   };
