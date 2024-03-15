@@ -9,13 +9,13 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
-import hciLogo from "../../assets/icons/logos/new_hci_logo.svg";
-import vnpay from "../../assets/icons/payments/ic_vnpay.svg";
-import mastercard from "../../assets/icons/payments/ic_mastercard.svg";
-import visa from "../../assets/icons/payments/ic_visa.svg";
 import Image from "next/image";
 import Link from "next/link";
+
+const hciLogo = "/icons/logos/new_hci_logo.svg";
+const vnpay = "/icons/payments/ic_vnpay.svg";
+const mastercard = "/icons/payments/ic_mastercard.svg";
+const visa = "/icons/payments/ic_visa.svg";
 
 const StyledTextLogo = styled(Typography)(({ theme }) => ({
   background: "linear-gradient(.25turn, #7F0E0E, #0F0D73)",
@@ -50,11 +50,14 @@ const Footer = () => {
               }}
             >
               <Box
-                component={Image}
-                src={hciLogo}
-                alt="logo"
-                sx={{ mr: 0.5 }}
-              />
+                width="32px"
+                height="32px"
+                position="relative"
+                marginRight="4px"
+              >
+                <Image src={hciLogo} alt="logo" fill />
+              </Box>
+
               <Stack spacing={-1.5}>
                 <StyledTextLogo variant="h6">HCI</StyledTextLogo>
                 <Typography variant="h6" component="h1">
@@ -85,33 +88,18 @@ const Footer = () => {
                     Support Payments
                   </Typography>
                   <Stack spacing={1} direction="row">
-                    <Box
-                      component={Image}
-                      src={vnpay}
-                      alt="vnpay"
-                      sx={{
-                        width: 32,
-                        height: 32,
-                      }}
-                    />
-                    <Box
-                      component={Image}
-                      src={mastercard}
-                      alt="mastercard"
-                      sx={{
-                        width: 32,
-                        height: 32,
-                      }}
-                    />
-                    <Box
-                      component={Image}
-                      src={visa}
-                      alt="visa"
-                      sx={{
-                        width: 32,
-                        height: 32,
-                      }}
-                    />
+                    <Box width="32px" height="32px" position="relative">
+                      {" "}
+                      <Image src={vnpay} alt="vnpay" fill />
+                    </Box>
+                    <Box width="32px" height="32px" position="relative">
+                      {" "}
+                      <Image src={mastercard} alt="mastercard" fill />
+                    </Box>
+                    <Box width="32px" height="32px" position="relative">
+                      {" "}
+                      <Image src={visa} alt="visa" fill />
+                    </Box>
                   </Stack>
                 </Stack>
               </Grid>

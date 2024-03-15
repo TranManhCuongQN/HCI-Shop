@@ -21,12 +21,12 @@ import Link from "next/link";
 // components
 
 //
-import hciLogo from "../../assets/icons/logos/new_hci_logo.svg";
 import Image from "next/image";
 import AccountPopover from "./AccountPopover";
 import useThemeStore from "@/zustand/use-trheme";
 // ----------------------------------------------------------------------
 
+const hciLogo = "/icons/logos/new_hci_logo.svg";
 const HEADER_MOBILE = 64;
 
 const StyledRoot = styled(AppBar)(({ theme }) => ({
@@ -124,13 +124,12 @@ export default function Header() {
                 underline="none"
                 sx={{ display: "inline-flex", alginItems: "center" }}
               >
-                <Box
-                  component={Image}
-                  alt="Logo"
-                  src={hciLogo}
-                  sx={{ mr: 1 }}
-                />
-                <StyledTextLogo variant="h3">HCI</StyledTextLogo>
+                <Box position="relative" width="40px" height="40px">
+                  <Image src={hciLogo} alt="Logo" fill />
+                </Box>
+                <StyledTextLogo variant="h3" ml={1.5}>
+                  HCI
+                </StyledTextLogo>
               </LinkMui>
             </StyledBox>
 

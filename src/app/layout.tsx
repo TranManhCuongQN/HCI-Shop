@@ -38,6 +38,19 @@ export default function RootLayout({
           name="google-site-verification"
           content="fFtbMIgnPWJqb16Lu3O8cikrx6-Okm1cJDETfZ_vdeM"
         />
+        <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 64x64" />
+        <link
+          rel="icon"
+          href="/icon.ico"
+          type="image/x-icon"
+          sizes="16x16 32x32 64x64"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-icon.ico"
+          type="image/x-icon"
+          sizes="16x16 32x32 64x64"
+        />
       </head>
       <body>
         <AppRouterCacheProvider>
