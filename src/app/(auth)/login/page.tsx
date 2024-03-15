@@ -6,9 +6,9 @@ import type { Metadata } from "next";
 export interface ILoginPageProps {}
 
 export const metadata: Metadata = {
-  title: "Login | Hci Shop - Leading Laptop and Phone Store",
+  title: "Login | Hci Shop - Leading Laptop Store",
   description:
-    "Log in to Hci Shop - the leading laptop and phone store. Explore high-quality products at competitive prices",
+    "Log in to Hci Shop - the leading laptop store. Explore high-quality products at competitive prices",
 };
 
 export default function LoginPage(props: ILoginPageProps) {

@@ -6,9 +6,9 @@ export interface IAddressLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Manage Address | Hci Shop - Leading Laptop and Phone Store",
+  title: "Manage Address | Hci Shop - Leading Laptop Store",
   description:
-    "Manage Address to Hci Shop - the leading laptop and phone store. Explore high-quality products at competitive prices",
+    "Manage Address to Hci Shop - the leading laptop store. Explore high-quality products at competitive prices",
 };
 
 export default function AddressLayout(props: IAddressLayoutProps) {

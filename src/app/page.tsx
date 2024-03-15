@@ -249,15 +249,15 @@ const smartphonesToShow = [
 ];
 
 export const metadata: Metadata = {
-  title: "Shop HCI - High-Quality Phones and Laptops Suitable for All Needs",
+  title: "HCI Shop  - High-Quality Laptops Suitable for All Needs",
   description:
-    "Welcome to HCI Shop - specializing in providing high-quality phones and laptops. Let us help you find the most suitable laptop and phone for your work and entertainment needs from our diverse collection of laptop",
+    "Welcome to HCI Shop - specializing in providing high-quality laptops. Let us help you find the most suitable laptop for your work and entertainment needs from our diverse collection of laptop",
   openGraph: {
     title: "HCI Shop",
     description:
-      "Welcome to HCI Shop - specializing in providing high-quality phones and laptops. Let us help you find the most suitable laptop and phone for your work and entertainment needs from our diverse collection of laptop",
+      "Welcome to HCI Shop - specializing in providing high-quality  laptops. Let us help you find the most suitable laptop  for your work and entertainment needs from our diverse collection of laptop",
     type: "website",
-    url: "https://hci-shop.vercel.app/",
+    url: "https://hci-shop.dev2001.site/",
     images: [
       "https://i.pinimg.com/564x/d7/47/d1/d747d1ca901acf7ed3561ffcd79a0720.jpg",
     ],

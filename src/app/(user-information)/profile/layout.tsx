@@ -6,9 +6,9 @@ export interface IProfileLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Profile | Hci Shop - Leading Laptop and Phone Store",
+  title: "Profile | Hci Shop - Leading Laptop Store",
   description:
-    "Profile to Hci Shop - the leading laptop and phone store. Explore high-quality products at competitive prices",
+    "Profile to Hci Shop - the leading laptop store. Explore high-quality products at competitive prices",
 };
 
 export default function ProfileLayout(props: IProfileLayoutProps) {

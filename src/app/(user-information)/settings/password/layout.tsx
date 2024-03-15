@@ -6,9 +6,9 @@ export interface IPasswordLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Change Password | Hci Shop - Leading Laptop and Phone Store",
+  title: "Change Password | Hci Shop - Leading Laptop Store",
   description:
-    "Change Password to Hci Shop - the leading laptop and phone store. Explore high-quality products at competitive prices",
+    "Change Password to Hci Shop - the leading laptop store. Explore high-quality products at competitive prices",
 };
 
 export default function PasswordLayout(props: IPasswordLayoutProps) {

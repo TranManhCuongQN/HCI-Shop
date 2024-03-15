@@ -6,9 +6,9 @@ import VerifyForm from "./components/VerifyForm";
 export interface ISignUpProps {}
 
 export const metadata: Metadata = {
-  title: "Verify account | Hci Shop - Leading Laptop and Phone Store",
+  title: "Verify account | Hci Shop - Leading Laptop Store",
   description:
-    "Verify account to Hci Shop - the leading laptop and phone store. Explore high-quality products at competitive prices",
+    "Verify account to Hci Shop - the leading laptop store. Explore high-quality products at competitive prices",
 };
 
 export default function SignUp(props: ISignUpProps) {
